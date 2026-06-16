@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SproutStream — Private Family Streaming</title>
+  <meta name="description" content="Your family's private streaming space. No ads. No algorithms. No strangers. Just your kids and the people who love them." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #6C63FF;
+      --accent:  #FF6B6B;
+      --green:   #6BCB77;
+      --yellow:  #FFD93D;
+      --text:    #1A1A2E;
+      --muted:   #7B7F9E;
+      --bg:      #F7F8FC;
+      --border:  #E8E9F3;
+    }
+    body { font-family: 'Nunito', sans-serif; color: var(--text); background: var(--bg); }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,.92); backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--border);
+      padding: .9rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-size: 1.3rem; font-weight: 900; color: var(--primary); }
+    .nav-logo span { color: var(--accent); }
+    .nav-cta {
+      background: var(--primary); color: #fff;
+      font-weight: 800; font-size: .9rem;
+      padding: .55rem 1.25rem; border-radius: 10px;
+      cursor: pointer; border: none; font-family: inherit;
+      box-shadow: 0 4px 14px rgba(108,99,255,.35);
+      transition: transform .15s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #6C63FF 0%, #4834D4 60%, #FF6B6B 100%);
+      color: #fff;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.2);
+      border: 1.5px solid rgba(255,255,255,.4);
+      border-radius: 20px;
+      padding: .3rem .9rem;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .5px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      max-width: 700px;
+      margin: 0 auto 1.25rem;
+    }
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      opacity: .88;
+      font-weight: 600;
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      line-height: 1.55;
+    }
+    .hero-cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-hero-primary {
+      background: #fff; color: var(--primary);
+      font-weight: 900; font-size: 1.05rem;
+      padding: .85rem 2rem; border-radius: 14px;
+      border: none; cursor: pointer; font-family: inherit;
+      box-shadow: 0 6px 24px rgba(0,0,0,.2);
+      transition: transform .15s;
+    }
+    .btn-hero-primary:hover { transform: translateY(-2px); }
+    .btn-hero-ghost {
+      background: transparent; color: #fff;
+      border: 2px solid rgba(255,255,255,.5);
+      font-weight: 800; font-size: 1rem;
+      padding: .85rem 2rem; border-radius: 14px;
+      cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .btn-hero-ghost:hover { background: rgba(255,255,255,.1); }
+
+    .hero-social-proof {
+      margin-top: 2.5rem;
+      font-size: .88rem;
+      opacity: .75;
+      font-weight: 700;
+    }
+
+    /* ── SECTION ── */
+    section { padding: 5rem 2rem; max-width: 960px; margin: 0 auto; }
+    .section-eyebrow { font-size: .8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: .75rem; }
+    .section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; }
+    .section-sub { font-size: 1.05rem; color: var(--muted); font-weight: 600; max-width: 560px; line-height: 1.55; }
+
+    /* ── BENEFITS ── */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    .benefit-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 1.75rem 1.5rem;
+      box-shadow: 0 4px 20px rgba(108,99,255,.1);
+      border: 2px solid var(--border);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .benefit-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(108,99,255,.18); }
+    .benefit-icon { font-size: 2.2rem; margin-bottom: .75rem; }
+    .benefit-title { font-size: 1.05rem; font-weight: 900; margin-bottom: .4rem; }
+    .benefit-text  { font-size: .9rem; color: var(--muted); font-weight: 600; line-height: 1.5; }
+
+    /* ── HOW IT WORKS ── */
+    .how-wrap { background: linear-gradient(135deg, #EAE9FF 0%, #F7F8FC 100%); }
+    .how-wrap section { padding: 5rem 2rem; }
+    .steps { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 3rem; max-width: 600px; }
+    .step { display: flex; gap: 1.25rem; align-items: flex-start; }
+    .step-num {
+      width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+      background: var(--primary); color: #fff;
+      font-weight: 900; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-title { font-size: 1rem; font-weight: 800; margin-bottom: .2rem; }
+    .step-text  { font-size: .9rem; color: var(--muted); font-weight: 600; line-height: 1.45; }
+
+    /* ── PRICING ── */
+    .pricing-card {
+      background: #fff;
+      border: 3px solid var(--primary);
+      border-radius: 24px;
+      padding: 2.5rem;
+      max-width: 440px;
+      margin: 3rem auto 0;
+      box-shadow: 0 8px 40px rgba(108,99,255,.18);
+      text-align: center;
+    }
+    .price-badge { background: var(--primary); color: #fff; font-size: .78rem; font-weight: 800; padding: .25rem .75rem; border-radius: 20px; display: inline-block; margin-bottom: 1rem; }
+    .price-amount { font-size: 3.5rem; font-weight: 900; color: var(--primary); line-height: 1; }
+    .price-per    { font-size: 1rem; color: var(--muted); font-weight: 700; margin-bottom: 1.5rem; }
+    .price-features { text-align: left; list-style: none; display: flex; flex-direction: column; gap: .65rem; margin-bottom: 2rem; }
+    .price-features li { font-size: .95rem; font-weight: 700; display: flex; align-items: center; gap: .6rem; }
+    .price-features li::before { content: "✅"; }
+    .price-cta {
+      width: 100%; background: var(--primary); color: #fff;
+      font-weight: 900; font-size: 1.05rem;
+      padding: .9rem; border-radius: 14px;
+      border: none; cursor: pointer; font-family: inherit;
+      box-shadow: 0 4px 14px rgba(108,99,255,.35);
+      transition: transform .15s;
+    }
+    .price-cta:hover { transform: translateY(-1px); }
+    .price-note { font-size: .8rem; color: var(--muted); font-weight: 600; margin-top: .75rem; }
+
+    /* ── GRANDPARENT ── */
+    .gp-wrap { background: #FFF9F0; }
+    .gp-wrap section { padding: 5rem 2rem; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.25rem; margin-top: 3rem; }
+    .testimonial  { background: #fff; border-radius: 18px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(108,99,255,.1); border: 2px solid var(--border); }
+    .testimonial-text   { font-size: .95rem; font-weight: 700; line-height: 1.55; margin-bottom: 1rem; font-style: italic; }
+    .testimonial-author { font-size: .82rem; color: var(--muted); font-weight: 700; }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: linear-gradient(135deg, var(--primary), #4834D4);
+      color: #fff; text-align: center; padding: 5rem 2rem;
+    }
+    .cta-strip h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900; margin-bottom: 1rem; }
+    .cta-strip p  { font-size: 1rem; opacity: .88; font-weight: 600; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text); color: rgba(255,255,255,.6);
+      padding: 2.5rem 2rem;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 1rem; font-size: .85rem; font-weight: 600;
+    }
+    .footer-logo { color: #fff; font-weight: 900; font-size: 1.1rem; }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,.6); transition: color .15s; }
+    .footer-links a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Sprout<span>Stream</span></div>
+  <button class="nav-cta" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">
+    Start Free Trial →
+  </button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🌱 Now in Beta · Join Free</div>
+  <h1>Your family's private streaming space.</h1>
+  <p>No ads. No algorithms. No strangers. Just your kids' videos for the people who love them.</p>
+  <div class="hero-cta-group">
+    <button class="btn-hero-primary" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">
+      Get Started Free
+    </button>
+    <button class="btn-hero-ghost" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">
+      See How It Works
+    </button>
+  </div>
+  <div class="hero-social-proof">🔒 Private by design · No credit card for beta · Cancel anytime</div>
+</div>
+
+<!-- BENEFITS -->
+<section>
+  <div class="section-eyebrow">Why SproutStream</div>
+  <div class="section-title">Built for families.<br>Not for advertisers.</div>
+  <div class="section-sub">YouTube and TikTok are the problem. SproutStream is the solution — a private space where you control everything your kids see.</div>
+
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon">🔒</div>
+      <div class="benefit-title">100% Private</div>
+      <div class="benefit-text">Your videos are never public. No strangers can find or view your family's content — ever.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🚫</div>
+      <div class="benefit-title">Zero Ads. Zero Algorithms.</div>
+      <div class="benefit-text">No rabbit holes. No "recommended" videos pulling your kids into content you didn't approve. You choose everything.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">👴👵</div>
+      <div class="benefit-title">Built for Grandparents Too</div>
+      <div class="benefit-text">Grandparents watch your kids' videos without needing social media. The simplest UX we could make — just tap and watch.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🎮</div>
+      <div class="benefit-title">Kid-Safe Mode</div>
+      <div class="benefit-text">A PIN-protected kids portal shows only content you've approved. Big colorful buttons, zero settings they can change.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">📱</div>
+      <div class="benefit-title">Works on Any Device</div>
+      <div class="benefit-text">Phone, tablet, laptop, or TV browser. No app download required. Grandma can use it on her iPad first try.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🎬</div>
+      <div class="benefit-title">Trusted Creator Content</div>
+      <div class="benefit-text">Access vetted educational content from pediatric therapists, coaches, and educators — all kid-safe, all approved.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="how-wrap" id="how">
+  <section>
+    <div class="section-eyebrow">How It Works</div>
+    <div class="section-title">Set up in 5 minutes.</div>
+    <div class="section-sub">No technical knowledge needed. If you can text a photo, you can use SproutStream.</div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Create your family account</div>
+          <div class="step-text">Sign up with your email. No credit card needed for the beta. Takes 30 seconds.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">Add your children's profiles</div>
+          <div class="step-text">Create a profile for each child. Set their age, choose content tags, and set a 4-digit PIN for Kid Mode.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Upload videos</div>
+          <div class="step-text">Drag and drop any video — school plays, birthday parties, soccer games. It streams instantly in HD.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-title">Share with family</div>
+          <div class="step-text">Invite grandparents, aunts, uncles. They get their own login and can only see what you share with them.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div>
+          <div class="step-title">Hand the tablet to your kid</div>
+          <div class="step-text">Switch to Kid Mode with a single tap. They see a colorful, simple screen with only their approved videos.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- GRANDPARENT USE CASE -->
+<div class="gp-wrap">
+  <section>
+    <div class="section-eyebrow">The Grandparent Angle</div>
+    <div class="section-title">The use case nobody else has nailed.</div>
+    <div class="section-sub">
+      Grandparents are desperate to stay close to grandkids they don't see often enough. They can't figure out TikTok. They don't want Facebook. But they <em>will</em> use a simple app that just shows them their grandkids.
+      <br /><br />
+      SproutStream is that app. Send Grandma a link. She clicks it. She watches. She cries happy tears. You get a phone call saying it's the best gift you've ever given her.
+    </div>
+  </section>
+</div>
+
+<!-- PRICING -->
+<section id="signup" style="text-align:center; padding-bottom: 6rem;">
+  <div class="section-eyebrow">Pricing</div>
+  <div class="section-title">One simple plan.<br>The whole family.</div>
+  <div class="section-sub" style="margin: 0 auto;">One subscription covers every child profile, every grandparent viewer, every device. No per-seat pricing, no surprise fees.</div>
+
+  <div class="pricing-card">
+    <div class="price-badge">Most Popular</div>
+    <div class="price-amount">$9.99</div>
+    <div class="price-per">per month · cancel anytime</div>
+
+    <ul class="price-features">
+      <li>Unlimited video uploads</li>
+      <li>Up to 10 child profiles</li>
+      <li>Unlimited family viewer accounts</li>
+      <li>HD streaming on any device</li>
+      <li>Kid-safe PIN-protected mode</li>
+      <li>Vetted educational creator content</li>
+      <li>Private — never public</li>
+    </ul>
+
+    <button class="price-cta" onclick="window.location.href='/'">
+      Start Your Free Beta Month →
+    </button>
+    <div class="price-note">No credit card needed during beta · $9.99/month after · Cancel anytime</div>
+  </div>
+
+  <div style="margin-top: 2rem; font-size: .9rem; color: var(--muted); font-weight: 700;">
+    Prefer annual? <strong style="color:var(--primary)">$89/year — save 2 months.</strong> Available at signup.
+  </div>
+</section>
+
+<!-- TESTIMONIALS (placeholder — replace with real beta quotes) -->
+<section style="background: #fff; padding: 5rem 2rem; max-width:100%;">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <div class="section-eyebrow">Early Families Love It</div>
+    <div class="section-title">What beta families are saying.</div>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="testimonial-text">"My mom lives across the country and cries every time she watches a new video of the grandkids. SproutStream is the best thing we've done for our family this year."</div>
+        <div class="testimonial-author">— Beta Family, St. Louis</div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-text">"I was so worried about my kids on YouTube. This is the first time I've handed them a tablet and felt completely relaxed. They see only what I've approved."</div>
+        <div class="testimonial-author">— Beta Family, Chicago</div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-text">"My 4-year-old figured out Kid Mode by herself in literally 30 seconds. I didn't have to show her anything. That's how simple the design is."</div>
+        <div class="testimonial-author">— Beta Family, Nashville</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <h2>Your family deserves a private space.</h2>
+  <p>Join hundreds of families protecting their kids from the internet while keeping grandparents close.</p>
+  <button class="btn-hero-primary" onclick="window.location.href='/'">
+    Start Free → No Credit Card
+  </button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Sprout<span>Stream</span></div>
+    <div style="margin-top:.4rem">© 2025 SproutStream · sproutstream.org</div>
+  </div>
+  <div class="footer-links">
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms of Service</a>
+    <a href="mailto:hello@sproutstream.org">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>

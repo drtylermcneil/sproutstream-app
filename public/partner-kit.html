@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SproutStream Partner Kit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .no-print { display: none; }
+      .page { page-break-after: always; }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito', sans-serif; background: #fff; color: #1A1A2E; }
+
+    /* Print button */
+    .print-bar { background: #6C63FF; color: #fff; padding: .75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .print-bar strong { font-size: 1rem; font-weight: 800; }
+    .print-btn { background: #fff; color: #6C63FF; border: none; border-radius: 8px; padding: .45rem 1rem; font-weight: 800; font-size: .9rem; cursor: pointer; font-family: inherit; }
+
+    /* Page layout */
+    .page { max-width: 800px; margin: 0 auto; padding: 3rem 2.5rem; }
+
+    /* Header */
+    .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 3px solid #EAE9FF; }
+    .logo { font-size: 1.75rem; font-weight: 900; color: #6C63FF; }
+    .logo span { color: #FF6B6B; }
+    .header-tag { font-size: .85rem; font-weight: 800; color: #7B7F9E; text-transform: uppercase; letter-spacing: .8px; }
+
+    /* Hero block */
+    .hero-block { background: linear-gradient(135deg, #6C63FF, #4834D4); color: #fff; border-radius: 20px; padding: 2rem 2.5rem; margin-bottom: 2rem; }
+    .hero-block h1 { font-size: 1.5rem; font-weight: 900; margin-bottom: .5rem; }
+    .hero-block p  { font-size: 1rem; opacity: .88; font-weight: 600; line-height: 1.55; }
+
+    /* Section */
+    h2 { font-size: 1.1rem; font-weight: 900; color: #6C63FF; margin: 1.75rem 0 .75rem; text-transform: uppercase; letter-spacing: .5px; }
+    p  { font-size: .97rem; font-weight: 600; color: #3A3A5C; line-height: 1.6; margin-bottom: .75rem; }
+
+    /* 3-col grid */
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+    .box { background: #F7F8FC; border-radius: 14px; padding: 1.25rem; border: 2px solid #E8E9F3; }
+    .box-icon  { font-size: 1.75rem; margin-bottom: .4rem; }
+    .box-title { font-size: .9rem; font-weight: 900; margin-bottom: .3rem; }
+    .box-text  { font-size: .82rem; font-weight: 600; color: #7B7F9E; line-height: 1.45; }
+
+    /* Earnings table */
+    .earnings { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .earnings th { background: #6C63FF; color: #fff; padding: .6rem 1rem; text-align: left; font-size: .85rem; font-weight: 800; }
+    .earnings td { padding: .6rem 1rem; font-size: .9rem; font-weight: 700; border-bottom: 1.5px solid #E8E9F3; }
+    .earnings tr:last-child td { border-bottom: none; }
+    .earnings tr:nth-child(even) td { background: #F7F8FC; }
+    .earn-highlight { color: #6C63FF; font-weight: 900; }
+
+    /* Share scripts */
+    .script-box { background: #EAE9FF; border-radius: 12px; padding: 1.25rem 1.5rem; margin: .75rem 0; border-left: 4px solid #6C63FF; }
+    .script-label { font-size: .75rem; font-weight: 800; color: #6C63FF; text-transform: uppercase; letter-spacing: .5px; margin-bottom: .4rem; }
+    .script-text { font-size: .92rem; font-weight: 700; color: #1A1A2E; line-height: 1.55; font-style: italic; }
+
+    /* Link placeholder */
+    .link-box { background: #FFF9F0; border: 2px dashed #FFD93D; border-radius: 12px; padding: 1rem 1.5rem; margin: 1rem 0; text-align: center; }
+    .link-box p { font-size: .9rem; font-weight: 800; color: #FF922B; margin: 0; }
+    .link-box .link { font-size: 1.1rem; font-weight: 900; color: #1A1A2E; margin-top: .25rem; }
+
+    /* Footer */
+    .kit-footer { border-top: 2px solid #E8E9F3; margin-top: 2.5rem; padding-top: 1.25rem; display: flex; justify-content: space-between; align-items: center; }
+    .kit-footer p { font-size: .8rem; color: #7B7F9E; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<div class="print-bar no-print">
+  <strong>🌱 SproutStream Partner Kit — Print or Save as PDF</strong>
+  <button class="print-btn" onclick="window.print()">🖨️ Print / Save PDF</button>
+</div>
+
+<div class="page">
+  <div class="header">
+    <div class="logo">Sprout<span>Stream</span></div>
+    <div class="header-tag">Partner Affiliate Kit · Confidential</div>
+  </div>
+
+  <div class="hero-block">
+    <h1>Your personal affiliate link earns you money every month. Here's everything you need.</h1>
+    <p>For every family you refer that stays subscribed, you earn $2/month — automatically, every month, as long as they're paying. This is your one-page guide to sharing SproutStream.</p>
+  </div>
+
+  <h2>What Is SproutStream?</h2>
+  <p>SproutStream is a <strong>private family streaming platform</strong> — a safe space where parents upload videos of their kids and share them privately with family. No ads. No algorithms. No strangers. Grandparents can watch grandkids grow up. Parents stay in control of what their kids watch. It works on any device.</p>
+
+  <div class="three-col">
+    <div class="box">
+      <div class="box-icon">🔒</div>
+      <div class="box-title">100% Private</div>
+      <div class="box-text">Only people the parent invites can see the content.</div>
+    </div>
+    <div class="box">
+      <div class="box-icon">🚫</div>
+      <div class="box-title">Zero Ads</div>
+      <div class="box-text">No YouTube rabbit holes. No algorithms. Parents control everything.</div>
+    </div>
+    <div class="box">
+      <div class="box-icon">👴👵</div>
+      <div class="box-title">Grandparent-Friendly</div>
+      <div class="box-text">So simple even non-tech grandparents use it on the first try.</div>
+    </div>
+  </div>
+
+  <h2>Who to Share It With</h2>
+  <p>Target: <strong>parents with children ages 0–10</strong>, especially those who:</p>
+  <ul style="margin:.5rem 0 .75rem 1.5rem; display:flex; flex-direction:column; gap:.3rem;">
+    <li style="font-size:.92rem;font-weight:600;color:#3A3A5C;">Have grandparents or extended family who live far away</li>
+    <li style="font-size:.92rem;font-weight:600;color:#3A3A5C;">Are frustrated by YouTube's recommended content for kids</li>
+    <li style="font-size:.92rem;font-weight:600;color:#3A3A5C;">Want a safe place to store and share family videos (recitals, sports games, birthdays)</li>
+    <li style="font-size:.92rem;font-weight:600;color:#3A3A5C;">Are your chiropractic patients, clients, social media followers, or personal network</li>
+  </ul>
+
+  <h2>Your Affiliate Link</h2>
+  <div class="link-box">
+    <p>Your unique referral link:</p>
+    <div class="link">sproutstream.org/?ref=YOUR_CODE</div>
+    <p style="margin-top:.4rem;font-size:.8rem;">Share this link everywhere. Every signup through your link is tracked to you permanently.</p>
+  </div>
+
+  <h2>What You Earn</h2>
+  <table class="earnings">
+    <thead><tr><th>Families You Refer</th><th>Monthly Commission</th><th>Annual Earnings</th></tr></thead>
+    <tbody>
+      <tr><td>5 families</td><td class="earn-highlight">$10/month</td><td>$120/year</td></tr>
+      <tr><td>10 families</td><td class="earn-highlight">$20/month</td><td>$240/year</td></tr>
+      <tr><td>25 families</td><td class="earn-highlight">$50/month</td><td>$600/year</td></tr>
+      <tr><td>50 families</td><td class="earn-highlight">$100/month</td><td>$1,200/year</td></tr>
+      <tr><td>100 families</td><td class="earn-highlight">$200/month</td><td>$2,400/year</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.82rem;color:#7B7F9E;">$2/month per active family · Paid monthly · Commission continues as long as they subscribe</p>
+
+  <h2>How to Share — Word-for-Word Scripts</h2>
+
+  <div class="script-box">
+    <div class="script-label">📱 Text Message</div>
+    <div class="script-text">"Hey! Have you heard of SproutStream? It's like a private Netflix for your family — you upload videos of your kids and share them privately with grandparents and family. No ads, no YouTube weirdness. My link gets you a free first month: sproutstream.org/?ref=YOUR_CODE"</div>
+  </div>
+
+  <div class="script-box">
+    <div class="script-label">📸 Instagram / Facebook Caption</div>
+    <div class="script-text">"If you have little ones at home, this is for you 👇 SproutStream is a private family streaming app — you upload your kids' videos and grandparents can watch them anytime, on any device. No ads. No strangers. No algorithms. Just family. First month is free at the link in my bio. 🌱 #familyfirst #sproutstream"</div>
+  </div>
+
+  <div class="script-box">
+    <div class="script-label">🏥 In-Person / Waiting Room Conversation</div>
+    <div class="script-text">"Do your kids watch YouTube? We actually found something much better — it's called SproutStream. It's completely private so only your family can see your videos, and grandparents can watch from their phone or iPad. We're using it for [your own kids]. They have a free trial. I can text you my link if you want to try it."</div>
+  </div>
+
+  <h2>3 Things to Do This Week</h2>
+  <div class="three-col">
+    <div class="box">
+      <div class="box-icon">📱</div>
+      <div class="box-title">1. Text 5 parents</div>
+      <div class="box-text">Send the text script above to 5 parents you know personally. Personal texts convert 10x better than social posts.</div>
+    </div>
+    <div class="box">
+      <div class="box-icon">📸</div>
+      <div class="box-title">2. Post once on Instagram</div>
+      <div class="box-text">Use the caption above. Add your link in bio. Even one post can drive 3–5 signups from your audience.</div>
+    </div>
+    <div class="box">
+      <div class="box-icon">🗣️</div>
+      <div class="box-title">3. Mention it in conversation</div>
+      <div class="box-text">When parents bring up their kids, mention it naturally. The in-person script above is all you need.</div>
+    </div>
+  </div>
+
+  <div class="kit-footer">
+    <p>Questions? Contact Tyler at hello@sproutstream.org</p>
+    <p>sproutstream.org · Private Family Streaming</p>
+  </div>
+</div>
+
+</body>
+</html>

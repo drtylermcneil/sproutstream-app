@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — SproutStream</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito', sans-serif; background: #F7F8FC; color: #1A1A2E; line-height: 1.7; }
+    nav { background: #fff; border-bottom: 2px solid #E8E9F3; padding: .9rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-size: 1.2rem; font-weight: 900; color: #6C63FF; text-decoration: none; }
+    .nav-logo span { color: #FF6B6B; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    h1 { font-size: 2rem; font-weight: 900; margin-bottom: .5rem; }
+    .meta { font-size: .85rem; color: #7B7F9E; font-weight: 600; margin-bottom: 2.5rem; }
+    h2 { font-size: 1.15rem; font-weight: 900; margin: 2rem 0 .6rem; color: #6C63FF; }
+    p  { margin-bottom: 1rem; font-size: .97rem; color: #3A3A5C; font-weight: 600; }
+    ul { margin: .5rem 0 1rem 1.5rem; }
+    li { margin-bottom: .4rem; font-size: .97rem; color: #3A3A5C; font-weight: 600; }
+    .highlight { background: #EAE9FF; border-left: 4px solid #6C63FF; border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; margin: 1.25rem 0; }
+    a { color: #6C63FF; }
+    footer { text-align: center; color: #7B7F9E; font-size: .85rem; font-weight: 600; padding: 2rem; border-top: 2px solid #E8E9F3; }
+  </style>
+</head>
+<body>
+<nav><a class="nav-logo" href="/">Sprout<span>Stream</span></a></nav>
+<div class="wrap">
+  <h1>Privacy Policy</h1>
+  <div class="meta">Effective Date: January 1, 2025 · Last Updated: January 1, 2025</div>
+
+  <div class="highlight">
+    <strong>The short version:</strong> SproutStream is a private, family-controlled platform. We never sell your data. We never show ads. Children never create accounts — only parents do. Everything your family uploads stays private.
+  </div>
+
+  <h2>1. Who We Are</h2>
+  <p>SproutStream ("we," "us," or "our") is a private family video streaming platform operated by SproutStream LLC. Our website is sproutstream.org. You can contact us at privacy@sproutstream.org.</p>
+
+  <h2>2. Who Uses SproutStream</h2>
+  <p>SproutStream is designed exclusively for parents and adult family members (18+). <strong>Children do not create accounts and do not directly interact with our platform.</strong> Parents create accounts and manage their children's viewing experience through child profiles they control.</p>
+  <p>This design is intentional and significantly limits our obligations under the Children's Online Privacy Protection Act (COPPA), since we do not knowingly collect personal information directly from children under 13.</p>
+
+  <h2>3. Information We Collect</h2>
+  <p><strong>Account Information:</strong> When you create an account, we collect your name, email address, and password (stored encrypted via Supabase Auth).</p>
+  <p><strong>Child Profile Information:</strong> When you create a child profile, we store the child's first name and age. This information is stored on your account and is never shared or used for any purpose other than personalizing the in-app experience for your family.</p>
+  <p><strong>Videos You Upload:</strong> Video files you upload are stored securely via Cloudflare Stream. They are private by default and accessible only to you and family members you explicitly invite.</p>
+  <p><strong>Payment Information:</strong> Billing is handled entirely by Stripe. We never see or store your full credit card number. We store only your Stripe Customer ID for subscription management.</p>
+  <p><strong>Usage Data:</strong> We may collect basic analytics such as feature usage frequency to improve the product. We do not use third-party advertising trackers.</p>
+
+  <h2>4. How We Use Your Information</h2>
+  <ul>
+    <li>To provide and maintain your SproutStream account</li>
+    <li>To process payments and manage your subscription</li>
+    <li>To enable family members you invite to view your shared content</li>
+    <li>To send you service-related emails (e.g., account confirmations, billing receipts)</li>
+    <li>To improve the platform based on aggregated, anonymized usage patterns</li>
+  </ul>
+  <p>We do not sell your personal information. We do not use your data for advertising. We do not share your data with third parties except as described in Section 5.</p>
+
+  <h2>5. Third-Party Services</h2>
+  <p>We use the following trusted services to operate SproutStream:</p>
+  <ul>
+    <li><strong>Supabase</strong> — Authentication and database (supabase.com/privacy)</li>
+    <li><strong>Cloudflare Stream</strong> — Video storage and delivery (cloudflare.com/privacypolicy)</li>
+    <li><strong>Stripe</strong> — Payment processing (stripe.com/privacy)</li>
+    <li><strong>Cloudflare Pages</strong> — Website hosting (cloudflare.com/privacypolicy)</li>
+  </ul>
+  <p>Each of these services has its own privacy policy. We have selected them specifically for their strong privacy and security track records.</p>
+
+  <h2>6. Children's Privacy (COPPA)</h2>
+  <p>SproutStream is designed with children's privacy as a first principle:</p>
+  <ul>
+    <li>Children under 13 do not create accounts or provide personal information to SproutStream</li>
+    <li>All account holders are adults (18+) who are responsible for managing child profiles</li>
+    <li>Child profiles contain only a first name and age — no email, phone, or contact information</li>
+    <li>Videos featuring children are private by default and controlled entirely by the parent account holder</li>
+    <li>We do not use children's data for advertising or share it with third parties</li>
+  </ul>
+  <p>If you believe we have inadvertently collected information from a child under 13, please contact us immediately at privacy@sproutstream.org and we will delete it promptly.</p>
+
+  <h2>7. Data Security</h2>
+  <p>We take security seriously. Your data is encrypted in transit (TLS) and at rest. Authentication is handled by Supabase Auth, which uses industry-standard bcrypt password hashing. Video files are stored on Cloudflare's infrastructure with access controls that prevent unauthorized viewing.</p>
+  <p>However, no system is 100% secure. If you discover a security vulnerability, please report it to security@sproutstream.org.</p>
+
+  <h2>8. Data Retention</h2>
+  <p>We retain your account data for as long as your account is active. If you cancel your subscription and close your account, we will delete your personal data within 30 days, except where we are required by law to retain it.</p>
+  <p>Uploaded videos are deleted from Cloudflare Stream within 30 days of account deletion.</p>
+
+  <h2>9. Your Rights</h2>
+  <p>Depending on your location, you may have the right to:</p>
+  <ul>
+    <li>Access the personal data we hold about you</li>
+    <li>Correct inaccurate data</li>
+    <li>Delete your account and associated data</li>
+    <li>Export your data in a portable format</li>
+    <li>Opt out of non-essential communications</li>
+  </ul>
+  <p>To exercise any of these rights, contact us at privacy@sproutstream.org. We will respond within 30 days.</p>
+
+  <h2>10. Cookies</h2>
+  <p>SproutStream uses only essential cookies required for authentication (session tokens) and security (CSRF protection). We do not use advertising cookies or third-party tracking cookies.</p>
+
+  <h2>11. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by email or by posting a prominent notice in the app. Continued use of SproutStream after changes take effect constitutes acceptance of the updated policy.</p>
+
+  <h2>12. Contact Us</h2>
+  <p>If you have questions about this Privacy Policy, please contact us:</p>
+  <ul>
+    <li>Email: <a href="mailto:privacy@sproutstream.org">privacy@sproutstream.org</a></li>
+    <li>Website: <a href="https://sproutstream.org">sproutstream.org</a></li>
+  </ul>
+</div>
+<footer>© 2025 SproutStream LLC · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></footer>
+</body>
+</html>
