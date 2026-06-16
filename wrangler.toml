@@ -1,4 +1,5 @@
 name = "sproutstream-app"
+account_id = "50e0864845b8f57f7329331361b28f91"
 compatibility_date = "2025-01-01"
 
 [assets]
